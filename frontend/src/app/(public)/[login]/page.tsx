@@ -1,13 +1,33 @@
 "use client";
 import { useState } from "react";
+import axios from "axios";
+import Cookies from "js-cookie";
+import { useRouter } from "next/navigation";
 
 export default function SigIn() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter(); // Use useRouter from next/navigation
 
-  const login = () => {
-    // Replace with your login logic
-    console.log({ username, password });
+  const login = async () => {
+    try {
+      const response = await axios.post("http://localhost:8000/token", {
+        username,
+        password,
+      });
+
+      console.log("response", response);
+
+      if (response.data.access_token) {
+        Cookies.set("auth_token", response.data.access_token);
+        router.push("/"); // Redirect to the home page
+      } else {
+        alert("Login failed!");
+      }
+    } catch (error) {
+      console.error("Error logging in:", error);
+      alert("An error occurred during login.");
+    }
   };
 
   return (
