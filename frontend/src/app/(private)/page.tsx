@@ -1,6 +1,12 @@
 "use client";
+import { redirect } from "next/navigation";
+import Cookies from "js-cookie";
+
 export default function Home() {
-  const logout = () => {};
+  const logout = () => {
+    Cookies.remove("auth_token");
+    redirect("/login");
+  };
 
   return (
     <div className="w-full flex justify-center center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] bg-black">
