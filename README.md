@@ -37,11 +37,11 @@ Before running the project, ensure the following tools are installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/luizuk/nassif
-cd nassif
+git clone https://github.com/luizuk/nacif
+cd nacif
 ```
 
-Replace `https://github.com/luizuk/nassif` with your Git repository URL.
+Replace `https://github.com/luizuk/nacif` with your Git repository URL.
 
 ---
 
