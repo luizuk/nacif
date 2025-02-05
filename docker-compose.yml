@@ -13,3 +13,15 @@ services:
       - ./backend:/app/backend
       - ./test.db:/app/test.db
     command: uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
+
+  frontend:
+    build:
+      context: ./frontend # Point to the frontend folder
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      CHOKIDAR_USEPOLLING: "true" # Ensures live reload works properly in Docker
+    command: npm run dev
