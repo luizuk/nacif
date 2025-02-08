@@ -27,7 +27,7 @@ Before running the project, ensure the following tools are installed:
 │   ├── ...
 ├── docker-compose.yml    # Docker services configuration
 ├── README.md             # Project documentation
-└── test.db               # SQLite database
+└── .env                  # Environment variables for the project
 ```
 
 ---
@@ -45,7 +45,19 @@ Replace `https://github.com/luizuk/nacif` with your Git repository URL.
 
 ---
 
-### 2. Start the Services
+### 2. Configure the `.env` File
+
+Create a `.env` file in the root directory with the following content:
+
+```env
+DATABASE_URL=postgresql://<username>:<password>@<host>:<port>/<database>
+```
+
+Replace `<username>`, `<password>`, `<host>`, `<port>`, and `<database>` with your PostgreSQL database details.
+
+---
+
+### 3. Start the Services
 
 Run the following command in the root directory of the project:
 
@@ -60,7 +72,7 @@ This command will:
 
 ---
 
-### 3. Access the Application
+### 4. Access the Application
 
 Once the services are running, you can access:
 
@@ -78,7 +90,7 @@ The `docker-compose.yml` file defines two services: `backend` and `frontend`.
 - **Framework**: FastAPI
 - **Port**: `8000`
 - **Environment Variable**: `DATABASE_URL`
-- **Database**: SQLite database (`test.db` file)
+- **Database**: PostgreSQL (configured via `.env` file)
 
 ### Frontend Service
 
@@ -110,19 +122,6 @@ docker-compose logs -f
 
 ---
 
-## How It Works
-
-1. **Backend**:
-
-   - A FastAPI server runs inside a Docker container on port `8000`.
-   - SQLite is used as the database, and the `test.db` file is mounted into the container.
-
-2. **Frontend**:
-   - A Next.js development server runs inside another Docker container on port `3000`.
-   - The frontend communicates with the backend API for authentication and other operations.
-
----
-
 ## Common Issues
 
 ### Docker Permission Error
@@ -151,6 +150,18 @@ Kill the processes using the ports:
 ```bash
 kill -9 <PID>
 ```
+
+---
+
+### Python Path Issues
+
+If you encounter issues with Python imports, ensure the root directory is included in the `PYTHONPATH`. Run:
+
+```bash
+export PYTHONPATH=$(pwd)
+```
+
+Add this line to your `.bashrc` or `.zshrc` to make it permanent.
 
 ---
 
