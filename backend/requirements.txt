@@ -6,3 +6,5 @@ sqlalchemy==2.0.19
 python-dotenv==1.0.0           
 python-jose==3.3.0
 passlib[bcrypt]==1.7.4
+psycopg2-binary>=2.9
+

@@ -5,8 +5,8 @@ import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 
 export default function SigIn() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("nacif");
+  const [password, setPassword] = useState("nacif123");
   const router = useRouter(); // Use useRouter from next/navigation
 
   const login = async () => {

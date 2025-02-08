@@ -1,6 +1,5 @@
 from sqlalchemy.sql import text
-from backend.db.database import SessionLocal, init_db  # Import init_db to initialize the schema
-from backend.db.models import Base
+from backend.db.database import SessionLocal, init_db
 
 
 def test_connection():
