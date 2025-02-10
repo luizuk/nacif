@@ -90,7 +90,7 @@ The `docker-compose.yml` file defines two services: `backend` and `frontend`.
 - **Framework**: FastAPI
 - **Port**: `8000`
 - **Environment Variable**: `DATABASE_URL`
-- **Database**: PostgreSQL (configured via `.env` file)
+- **Database**: PostgreSQL (configured via `.env` file, edit the `.env.example` file)
 
 ### Frontend Service
 
