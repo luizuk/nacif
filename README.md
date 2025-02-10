@@ -20,7 +20,7 @@ Before running the project, ensure the following tools are installed:
 ├── backend/              # Backend code (FastAPI)
 │   ├── main.py           # Backend entry point
 │   ├── Dockerfile        # Backend container configuration
-    └── .env              # Environment variables for the project
+│   ├──.env               # Backend environment variables
 │   ├── ...
 ├── frontend/             # Frontend code (Next.js)
 │   ├── pages/            # Frontend routes and components
